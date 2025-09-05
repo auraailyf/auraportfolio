@@ -1,0 +1,214 @@
+{% load static %}  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURAAILYF - Empowering Businesses with Modern Web Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>AURAAILYF</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    
+    <!-- Left Side: Text -->
+    <div class="hero-text">
+      <h1 class="hero-title">AURAAILYF</h1>
+      <p class="hero-tagline">Designing and Developing Innovative Solutions</p>
+      <button class="cta-button" id="cta-button">Get Started</button>
+    </div>
+
+    <!-- Right Side: Image -->
+    <div class="hero-image">
+      <img src="{% static 'images/aura.jpg' %}" alt="Aura Image">
+    </div>
+    
+  </div>
+
+  <!-- Floating Background Elements -->
+  <div class="hero-bg">
+    <div class="floating-element element-1"></div>
+    <div class="floating-element element-2"></div>
+    <div class="floating-element element-3"></div>
+  </div>
+
+
+</section>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Us</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        At AURAAILYF, we transform digital visions into reality. With cutting-edge technology and 
+                        innovative design, we deliver web services that elevate your business to new heights. 
+                        Our team of expert developers and designers craft solutions that are not just functional, 
+                        but extraordinary.
+                    </p>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Custom web applications built with modern technologies and best practices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>E-Commerce</h3>
+                    <p>Beautiful, intuitive designs that provide exceptional user experiences.</p>
+                </div>
+                <div class="service-card">
+  <div class="service-icon">
+    <!-- AI Brain + Network -->
+<i class="fas fa-brain"></i>
+
+
+
+
+<!-- Robot (AI Assistant) -->
+<i class="fas fa-robot"></i>
+
+    
+  </div>
+  <h3>Web + AI Integration</h3>
+  <p>Building intelligent web applications that leverage AI for enhanced user experiences.</p>
+</div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <!-- Graduation Cap (Perfect for Final Year) -->
+<i class="fas fa-graduation-cap"></i>
+
+
+                    </div>
+                    <h3>Final Year projects</h3>
+                    <p>We can make real time projects for final year students.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            
+                            <h3>Emailz</h3>
+                            <a href="mailto:auraailyf@gmail.com" style="color: white;">auraailyf@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 7416153019</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Vijayawada  520011</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <span class="error-message" id="message-error"></span>
+                    </div>
+                    <button type="submit" class="send-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>AURAAILYF</h2>
+                    <p>Empowering Businesses with Modern Web Services</p>
+                </div>
+                <div class="social-icons">
+                    
+            
+                  
+                    <a href="https://www.instagram.com/auraailyf?igsh=cGxjemw0NWRkeW9j" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@aurailyf?si=JW7WBbBMon4B5qMR" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AURAAILYF. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    
+
+</body>
+</html>
