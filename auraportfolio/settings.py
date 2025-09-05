@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ===================== SECURITY =====================
 SECRET_KEY = 'django-insecure-o#7qc+^j#!=6&+$2a2$$k*4^qch9q_m=4v)at_ur+i%^hn^#7c'
 
-DEBUG = False   # Turn off debug in production
+DEBUG = False# Turn off debug in production
 
 ALLOWED_HOSTS = ['auraportfolio.onrender.com', 'localhost', '127.0.0.1']
 
