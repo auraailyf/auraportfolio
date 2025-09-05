@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-o#7qc+^j#!=6&+$2a2$$k*4^qch9q_m=4v)at_ur+i%^hn^#7c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['auraportfolio.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
