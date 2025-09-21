@@ -2,43 +2,55 @@ from django.shortcuts import render
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
 from django.conf import settings
-from django.shortcuts import render
+from datetime import datetime
+import os 
+from openpyxl import Workbook, load_workbook # Import the necessary classes
+
 # Create your views here.
 def home_view(request):
     return render(request, 'index.html')
-@csrf_exempt # Use this decorator for simplicity with external forms
+
+@csrf_exempt
 def contact_view(request):
     if request.method == 'POST':
         try:
-            # Parse the JSON data from the request body
             data = json.loads(request.body)
             name = data.get('name')
             email = data.get('email')
             message = data.get('message')
 
-            # Basic validation
             if not all([name, email, message]):
                 return JsonResponse({'status': 'error', 'message': 'All fields are required.'}, status=400)
 
-            # Prepare the email
-            subject = f'New Contact Form Submission from {name}'
-            message_body = f"""
-            You have received a new message from your website contact form:
+            # --- New Code to Save to an Excel Document (.xlsx) ---
+            submissions_dir = os.path.join(settings.BASE_DIR, 'myapp', 'submissions')
+            if not os.path.exists(submissions_dir):
+                os.makedirs(submissions_dir)
 
-            Name: {name}
-            Email: {email}
-            Message:
-            {message}
-            """
-            sender_email = settings.EMAIL_HOST_USER
-            recipient_list = [settings.EMAIL_HOST_USER] # Sends the email to yourself
+            filename = 'contact_submissions.xlsx'
+            filepath = os.path.join(submissions_dir, filename)
 
-            # Send the email
-            send_mail(subject, message_body, sender_email, recipient_list)
+            # Check if the Excel file already exists
+            if os.path.exists(filepath):
+                # If it exists, load the workbook
+                workbook = load_workbook(filepath)
+                sheet = workbook.active
+            else:
+                # If it doesn't exist, create a new workbook and add headers
+                workbook = Workbook()
+                sheet = workbook.active
+                sheet.append(['Timestamp', 'Name', 'Email', 'Message'])
 
-            return JsonResponse({'status': 'success', 'message': 'Message sent successfully!'})
+            # Append the new data to the next empty row
+            timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            sheet.append([timestamp, name, email, message])
+
+            # Save the workbook
+            workbook.save(filepath)
+            # --- End of New Code ---
+
+            return JsonResponse({'status': 'success', 'message': 'Message saved successfully to Excel!'})
 
         except Exception as e:
             return JsonResponse({'status': 'error', 'message': str(e)}, status=500)

@@ -1,11 +1,11 @@
-# myproject/urls.py
+# auraportfolio/urls.py
 
 from django.contrib import admin
 from django.urls import path, include
-from myapp.views import home_view # Import the new home_view
+from myapp.views import home_view  # Make sure this import exists
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('myapp.urls')),
-    path('', home_view, name='home'), # Add this line for the homepage
+    path('', home_view, name='home'),  # This path handles the home page (e.g., yoursite.com/)
+    path('api/contact/', include('myapp.urls')), # This path handles the API endpoint
 ]
