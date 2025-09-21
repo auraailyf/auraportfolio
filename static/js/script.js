@@ -89,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // ====================================================================
 // =================== CONTACT FORM SUBMISSION LOGIC ==================
 // ====================================================================
+// ====================================================================
+// =================== CONTACT FORM SUBMISSION LOGIC ==================
+// ====================================================================
 contactForm.addEventListener('submit', async (e) => { // Added 'async' here
     e.preventDefault();
     
@@ -131,8 +134,13 @@ contactForm.addEventListener('submit', async (e) => { // Added 'async' here
         submitButton.disabled = true;
 
         try {
+            // --- UPDATED FETCH URL ---
+            // Use window.location.origin to get the base URL dynamically
+            // This works for both http://127.0.0.1:8000 and https://auraportfolio.onrender.com
+            const backendUrl = `${window.location.origin}/api/contact/`; 
+
             // Send the data to your Django backend endpoint
-            const response = await fetch('/api/contact/', {
+            const response = await fetch(backendUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -170,7 +178,6 @@ contactForm.addEventListener('submit', async (e) => { // Added 'async' here
         }
     }
 });
-
 function showError(elementId, message) {
     const errorElement = document.getElementById(elementId);
     errorElement.textContent = message;
